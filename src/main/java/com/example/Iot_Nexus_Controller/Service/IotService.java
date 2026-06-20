@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-// TODO: Mark this class as a Service component so Spring can manage it
+//  Marked this class as a Service component so Spring can manage it
 @Service
 public class IoTService {
 
-    // Define the Repositories as private final fields to be injected via the constructor
+    // Defined the Repositories as private final fields to be injected via the constructor
     private final DeviceRepository deviceRepository;
     private final RoomRepository roomRepository;
 
-    // TODO: Inject the RoomRepository and DeviceRepository using Constructor Injection
+    //  Injecting the RoomRepository and DeviceRepository using Constructor Injection
     public IoTService(DeviceRepository deviceRepository,RoomRepository roomRepository)
     {
         this.deviceRepository=deviceRepository;
@@ -36,24 +36,24 @@ public class IoTService {
         return roomRepository.findAll();
     }
 
-    // 3. Add a Device to a Specific Room
-    // Challenge: We need to do 1 thing BEFORE saving the Device:
+    // 3. Adding a Device to a Specific Room
+
     // If the Room exists, set the Room in the Device object
     public Device addDevice(Long roomId, Device device) {
-        // TODO: Try to find the Room in the database by its ID (using the RoomRepository)
+        //  Trying to find the Room in the database by its ID (using the RoomRepository)
         var roomOptional=roomRepository.findById(roomId);
 
-        // TODO: Check if the Room actually exists
+        //  Checking if the Room actually exists
         if (roomOptional.isPresent()) {
 
-            // TODO: Get the actual Room object out of the result
+            //  Getting the actual Room object out of the result
             Room foundRoom = roomOptional.get();
 
-            // TODO: KEY STEP - LINK the Device to the Room (This sets the Foreign Key!)
+            //  KEY STEP - LINKING the Device to the Room (This sets the Foreign Key!)
             device.setRoom(foundRoom);
 
 
-            // TODO: Save the Device to the database and return it
+            //  Saving the Device to the database and return it
             return deviceRepository.save(device);
         }
         else{
