@@ -25,13 +25,13 @@ public class IoTService {
 
 
     // 1. Create a Room
-    // Challenge: Use the repository to save the room object.
+    //  Using the repository to save the room object.
     public Room createRoom(Room room) {
         return roomRepository.save(room);
     }
 
     // 2. Get All Rooms
-    // Challenge: Use the repository to find all records.
+    //  Using the repository to find all records.
     public List<Room> getAllRooms() {
         return roomRepository.findAll();
     }
