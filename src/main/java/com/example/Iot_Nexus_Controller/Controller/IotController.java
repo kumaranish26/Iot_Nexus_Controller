@@ -1,8 +1,8 @@
 package com.example.Iot_Nexus_Controller.Controller;
 
-import com.example.Iot_Nexus_Controller.entity.Device;
-import com.example.Iot_Nexus_Controller.entity.Room;
-import com.example.Iot_Nexus_Controller.service.IoTService;
+import com.example.Iot_Nexus_Controller.Entity.Device;
+import com.example.Iot_Nexus_Controller.Entity.Room;
+import com.example.Iot_Nexus_Controller.Entity.IoTService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
